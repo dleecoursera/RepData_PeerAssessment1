@@ -146,6 +146,15 @@ steps_per_day2 <- summarise(activity_days2, total_steps =
                     sum(as.numeric(as.character(steps))))
 ```
 
+A histogram of the total steps per day is generated.
+
+
+```r
+hist(steps_per_day2$total_steps, xlab="Steps per day", main="Histogram of steps per day, missing values filled in")
+```
+
+![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
+
 As before, the mean and median values of the total step counts are calculated, but on the new data frame with the missing values filled in.
 
 
@@ -164,6 +173,8 @@ median(steps_per_day2$total_steps)
 ```
 ## [1] 10766.19
 ```
+
+These values are almost the same as the mean and median excluding the missing values; based on this, the impact of imputing the missing data seems to be small.
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
@@ -203,5 +214,5 @@ g <- g + xlab("Interval(minutes)") + ylab("Average steps")
 g + facet_grid(day ~ .)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-14-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-15-1.png) 
 
